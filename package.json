@@ -1,8 +1,9 @@
 {
-  "name": "api-interface",
-  "version": "1.0.0",
+  "name": "chisel-api-interface",
+  "version": "1.5.0",
   "description": "Typescript interface for the chisel API",
-  "main": "main.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",

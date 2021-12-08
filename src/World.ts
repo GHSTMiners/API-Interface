@@ -1,3 +1,13 @@
+export interface CryptoSpawn {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  world_id: number;
+  crypto_id: number;
+  starting_layer: number;
+  ending_layer: number;
+  spawn_rate: number;
+}
 export interface Crypto {
   id: number;
   created_at: Date;
@@ -9,6 +19,8 @@ export interface Crypto {
   soil_image: string;
   wallet_image: string;
   mining_sound: string;
+  spawns: CryptoSpawn[];
+
 }
 export interface Soil {
   id: number;
@@ -21,6 +33,7 @@ export interface Soil {
   top_image: string;
   middle_image: string;
   bottom_image: string;
+  order: number;
 }
 export interface ExplosionCoordinate {
   id: number;
@@ -44,6 +57,16 @@ export interface Explosive {
   explosion_sound: string;
   explosion_coordinates: ExplosionCoordinate[];
 }
+export interface RockSpawn {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  world_id: number;
+  rock_id: number;
+  starting_layer: number;
+  ending_layer: number;
+  spawn_rate: number;
+}
 export interface Rock {
   id: number;
   created_at: Date;
@@ -54,6 +77,7 @@ export interface Rock {
   digable: number;
   explodeable: number;
   lava: number;
+  spawns: RockSpawn[];
 }
 export interface Skill {
   id: number;
@@ -87,8 +111,18 @@ export interface World {
   published: number;
   video: string;
   description: string;
+  width: number;
+  height: number;
 }
-
+export interface WhiteSpace {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  world_id: number;
+  starting_layer: number;
+  ending_layer: number;
+  spawn_rate: number;
+}
 export interface DetailedWorld extends World {
   crypto: Crypto[];
   soil: Soil[];
@@ -96,5 +130,6 @@ export interface DetailedWorld extends World {
   rocks: Rock[];
   skills: Skill[];
   vitals: Vital[];
+  white_spaces: WhiteSpace[];
   consumables: any[];
 }
