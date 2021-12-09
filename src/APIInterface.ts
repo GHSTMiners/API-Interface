@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { DetailedWorld, World } from './World';
 
-export default class APIInterface {
+export class APIInterface {
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
   }

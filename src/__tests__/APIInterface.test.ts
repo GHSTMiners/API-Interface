@@ -9,6 +9,6 @@ it('Get Worlds', () => {
 it('Get detailed world', () => {
   let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
   return apiInterface.world(6).then((world) => {
-    expect(world).toBeTruthy()
+    expect(world).toBeTruthy();
   });
 });

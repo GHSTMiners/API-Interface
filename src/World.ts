@@ -1,4 +1,15 @@
-export interface CryptoSpawn {
+export enum SpawnType {
+  None = 0,
+  Crypto,
+  Rock,
+  WhiteSpace,
+}
+export interface AbstractSpawn {
+  type: SpawnType;
+}
+
+export interface CryptoSpawn extends AbstractSpawn {
+  type: SpawnType.Crypto;
   id: number;
   created_at: Date;
   updated_at: Date;
@@ -20,7 +31,6 @@ export interface Crypto {
   wallet_image: string;
   mining_sound: string;
   spawns: CryptoSpawn[];
-
 }
 export interface Soil {
   id: number;
@@ -57,7 +67,8 @@ export interface Explosive {
   explosion_sound: string;
   explosion_coordinates: ExplosionCoordinate[];
 }
-export interface RockSpawn {
+export interface RockSpawn extends AbstractSpawn {
+  type: SpawnType.Rock;
   id: number;
   created_at: Date;
   updated_at: Date;
@@ -115,6 +126,7 @@ export interface World {
   height: number;
 }
 export interface WhiteSpace {
+  type: SpawnType.WhiteSpace;
   id: number;
   created_at: Date;
   updated_at: Date;
