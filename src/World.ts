@@ -99,6 +99,25 @@ export interface Rock {
   lava: number;
   spawns: RockSpawn[];
 }
+export interface Trait {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  short_name: string;
+  name: string;
+  blockchain_index: number;
+}
+export interface SkillTraitEffect {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  trait_effect_id: number;
+  skill_id: number;
+  multiplier: number;
+  offset: number;
+  trait_id: number;
+  trait: Trait;
+}
 export interface Skill {
   id: number;
   created_at: Date;
@@ -110,6 +129,18 @@ export interface Skill {
   maximum: number;
   initial: number;
   default: number;
+  trait_effects: SkillTraitEffect[];
+}
+export interface SkillVitalEffect {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  trait_effect_id: number;
+  vital_id: number;
+  multiplier: number;
+  offset: number;
+  trait_id: number;
+  trait: Trait;
 }
 export interface Vital {
   id: number;
@@ -121,6 +152,7 @@ export interface Vital {
   maximum: number;
   initial: number;
   default: number;
+  trait_effects: SkillVitalEffect[];
 }
 export interface World {
   id: number;
