@@ -4,6 +4,7 @@ export enum SpawnType {
   Rock,
   WhiteSpace,
 }
+
 export interface AbstractSpawn {
   type: SpawnType;
 }
@@ -18,6 +19,15 @@ export interface CryptoSpawn extends AbstractSpawn {
   starting_layer: number;
   ending_layer: number;
   spawn_rate: number;
+}
+export interface Background {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  world_id: number;
+  image: string;
+  starting_layer: number;
+  ending_layer: number;
 }
 export interface Crypto {
   id: number;
@@ -68,7 +78,6 @@ export interface Explosive {
   explosion_coordinates: ExplosionCoordinate[];
 }
 export interface RockSpawn extends AbstractSpawn {
-  type: SpawnType.Rock;
   id: number;
   created_at: Date;
   updated_at: Date;
@@ -131,11 +140,13 @@ export interface WhiteSpace {
   created_at: Date;
   updated_at: Date;
   world_id: number;
+  background_only: boolean;
   starting_layer: number;
   ending_layer: number;
   spawn_rate: number;
 }
 export interface DetailedWorld extends World {
+  backgrounds: Background[];
   crypto: Crypto[];
   soil: Soil[];
   explosives: Explosive[];

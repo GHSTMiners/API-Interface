@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SpawnType } from '.';
 import { DetailedWorld, World } from './World';
 
 export class APIInterface {
@@ -14,6 +15,14 @@ export class APIInterface {
 
   public world(worldID: number): Promise<DetailedWorld> {
     return axios.get(this.baseUrl + '/world/' + worldID).then((res) => {
+      const detailedWorld: DetailedWorld = res.data;
+      detailedWorld.crypto.forEach((crypo) => {
+        crypo.spawns.forEach((spawn) => (spawn.type = SpawnType.Crypto));
+      });
+      detailedWorld.rocks.forEach((rock) => {
+        rock.spawns.forEach((spawn) => (spawn.type = SpawnType.Rock));
+      });
+      detailedWorld.white_spaces.forEach((whiteSpace) => (whiteSpace.type = SpawnType.WhiteSpace));
       return res.data as DetailedWorld;
     });
   }
