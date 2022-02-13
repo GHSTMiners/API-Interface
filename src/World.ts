@@ -4,11 +4,9 @@ export enum SpawnType {
   Rock,
   WhiteSpace,
 }
-
 export interface AbstractSpawn {
   type: SpawnType;
 }
-
 export interface CryptoSpawn extends AbstractSpawn {
   type: SpawnType.Crypto;
   id: number;
@@ -41,6 +39,20 @@ export interface Crypto {
   wallet_image: string;
   mining_sound: string;
   spawns: CryptoSpawn[];
+}
+export interface Building {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  world_id: number;
+  spawn_x: number;
+  spawn_y: number;
+  video: string;
+  activation_sound: string;
+  activation_message: string;
+  type: string;
+  crypto_id: number;
+  price: number;
 }
 export interface Soil {
   id: number;
@@ -107,17 +119,6 @@ export interface Trait {
   name: string;
   blockchain_index: number;
 }
-export interface SkillTraitEffect {
-  id: number;
-  created_at: Date;
-  updated_at: Date;
-  trait_effect_id: number;
-  skill_id: number;
-  multiplier: number;
-  offset: number;
-  trait_id: number;
-  trait: Trait;
-}
 export interface Skill {
   id: number;
   created_at: Date;
@@ -125,22 +126,10 @@ export interface Skill {
   world_id: number;
   name: string;
   description: string;
-  minimum: number;
-  maximum: number;
-  initial: number;
+  minimum: string;
+  maximum: string;
+  initial: string;
   default: number;
-  trait_effects: SkillTraitEffect[];
-}
-export interface SkillVitalEffect {
-  id: number;
-  created_at: Date;
-  updated_at: Date;
-  trait_effect_id: number;
-  vital_id: number;
-  multiplier: number;
-  offset: number;
-  trait_id: number;
-  trait: Trait;
 }
 export interface Vital {
   id: number;
@@ -148,11 +137,10 @@ export interface Vital {
   updated_at: Date;
   world_id: number;
   name: string;
-  minimum: number;
-  maximum: number;
-  initial: number;
+  minimum: string;
+  maximum: string;
+  initial: string;
   default: number;
-  trait_effects: SkillVitalEffect[];
 }
 export interface World {
   id: number;
@@ -180,6 +168,7 @@ export interface WhiteSpace {
 export interface DetailedWorld extends World {
   backgrounds: Background[];
   crypto: Crypto[];
+  buildings: Building[];
   soil: Soil[];
   explosives: Explosive[];
   rocks: Rock[];
