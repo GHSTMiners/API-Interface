@@ -27,12 +27,20 @@ export interface Background {
   starting_layer: number;
   ending_layer: number;
 }
+export interface Music {
+  id: number;
+  created_at: Date;
+  updated_at: Date; 
+  name: string;
+  audio: string;
+}
 export interface Crypto {
   id: number;
   created_at: Date;
   updated_at: Date;
   world_id: number;
   name: string;
+  shortcode: string;
   wallet_address: string;
   weight: number;
   soil_image: string;
@@ -169,6 +177,7 @@ export interface DetailedWorld extends World {
   backgrounds: Background[];
   crypto: Crypto[];
   buildings: Building[];
+  music: Music[];
   soil: Soil[];
   explosives: Explosive[];
   rocks: Rock[];
