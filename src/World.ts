@@ -161,6 +161,7 @@ export interface World {
   description: string;
   width: number;
   height: number;
+  world_crypto_id: number;
 }
 export interface WhiteSpace {
   type: SpawnType.WhiteSpace;
