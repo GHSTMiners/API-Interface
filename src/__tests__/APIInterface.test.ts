@@ -1,4 +1,4 @@
-import APIInterface from '../APIInterface';
+import { APIInterface } from '../APIInterface';
 import { DetailedWorld } from '../World';
 
 it('Get Worlds', () => {
@@ -10,5 +10,12 @@ it('Get detailed world', () => {
   let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
   return apiInterface.world(6).then((world) => {
     expect(world).toBeTruthy();
+  });
+});
+
+it('Get categories', () => {
+  let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
+  return apiInterface.statistic_categories().then((categories) => {
+    expect(categories).toBeTruthy();
   });
 });

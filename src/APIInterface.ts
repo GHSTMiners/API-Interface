@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { SpawnType } from '.';
+import { StatisticCategory } from './Statistics';
 import { DetailedWorld, World } from './World';
 
 export class APIInterface {
@@ -24,6 +25,12 @@ export class APIInterface {
       });
       detailedWorld.white_spaces.forEach((whiteSpace) => (whiteSpace.type = SpawnType.WhiteSpace));
       return res.data as DetailedWorld;
+    });
+  }
+
+  public statistic_categories() : Promise<StatisticCategory[]> {
+    return axios.get(this.baseUrl + '/statistics/categories/').then((res) => {
+      return res.data as StatisticCategory[];
     });
   }
 
