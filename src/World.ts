@@ -127,6 +127,7 @@ export interface Trait {
   name: string;
   blockchain_index: number;
 }
+
 export interface Skill {
   id: number;
   created_at: Date;
