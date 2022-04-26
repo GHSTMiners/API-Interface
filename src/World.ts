@@ -10,35 +10,51 @@ export interface AbstractSpawn {
 export interface CryptoSpawn extends AbstractSpawn {
   type: SpawnType.Crypto;
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   crypto_id: number;
   starting_layer: number;
   ending_layer: number;
   spawn_rate: number;
 }
+export interface UpgradePrice {
+  id: number
+  crypto_id: number
+  tier_1: number
+  tier_2: number
+  tier_3: number
+  tier_4: number
+  tier_5: number
+}
+export interface UpgradeSkillEffect {
+  id: number
+  skill_id: number
+  formula: string
+}
+export interface UpgradeVitalEffect {
+  id: number
+  vital_id: number
+  formula: string
+}
+export interface Upgrade {
+  id: number;
+  name: string;
+  description: string;
+  prices: UpgradePrice[];
+  skill_effects: UpgradeSkillEffect[];
+  vital_effects: UpgradeVitalEffect[];
+}
 export interface Background {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   image: string;
   starting_layer: number;
   ending_layer: number;
 }
 export interface Music {
   id: number;
-  created_at: Date;
-  updated_at: Date; 
   name: string;
   audio: string;
 }
 export interface Crypto {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   name: string;
   shortcode: string;
   wallet_address: string;
@@ -50,9 +66,6 @@ export interface Crypto {
 }
 export interface Building {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   spawn_x: number;
   spawn_y: number;
   video: string;
@@ -64,9 +77,6 @@ export interface Building {
 }
 export interface Soil {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   name: string;
   layers: number;
   dig_multiplier: number;
@@ -77,17 +87,12 @@ export interface Soil {
 }
 export interface ExplosionCoordinate {
   id: number;
-  created_at: Date;
-  updated_at: Date;
   explosive_id: number;
   x: number;
   y: number;
 }
 export interface Explosive {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   name: string;
   soil_image: string;
   inventory_image: string;
@@ -99,9 +104,6 @@ export interface Explosive {
 }
 export interface RockSpawn extends AbstractSpawn {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   rock_id: number;
   starting_layer: number;
   ending_layer: number;
@@ -109,9 +111,6 @@ export interface RockSpawn extends AbstractSpawn {
 }
 export interface Rock {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   name: string;
   image: string;
   digable: number;
@@ -121,8 +120,6 @@ export interface Rock {
 }
 export interface Trait {
   id: number;
-  created_at: Date;
-  updated_at: Date;
   short_name: string;
   name: string;
   blockchain_index: number;
@@ -130,9 +127,6 @@ export interface Trait {
 
 export interface Skill {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   name: string;
   description: string;
   minimum: string;
@@ -142,9 +136,6 @@ export interface Skill {
 }
 export interface Vital {
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   name: string;
   minimum: string;
   maximum: string;
@@ -153,8 +144,6 @@ export interface Vital {
 }
 export interface World {
   id: number;
-  created_at: Date;
-  updated_at: Date;
   name: string;
   development_mode: number;
   published: number;
@@ -167,9 +156,6 @@ export interface World {
 export interface WhiteSpace {
   type: SpawnType.WhiteSpace;
   id: number;
-  created_at: Date;
-  updated_at: Date;
-  world_id: number;
   background_only: boolean;
   starting_layer: number;
   ending_layer: number;
