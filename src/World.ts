@@ -167,6 +167,7 @@ export interface DetailedWorld extends World {
   buildings: Building[];
   music: Music[];
   soil: Soil[];
+  upgrades: Upgrade[];
   explosives: Explosive[];
   rocks: Rock[];
   skills: Skill[];
