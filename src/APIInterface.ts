@@ -29,7 +29,7 @@ export class APIInterface {
   }
 
   public statistic_categories() : Promise<StatisticCategory[]> {
-    return axios.get(this.baseUrl + '/statistics/categories/').then((res) => {
+    return axios.get(this.baseUrl + '/statistics/categories').then((res) => {
       return res.data as StatisticCategory[];
     });
   }
