@@ -22,7 +22,7 @@ it('Get categories', () => {
 
 it('Get highscores', () => {
   let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
-  return apiInterface.highscores({id: 1}).then((score) => {
+  return apiInterface.highscores({ id: 1 }).then((score) => {
     expect(score).toBeTruthy();
   });
 });

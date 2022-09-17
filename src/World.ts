@@ -16,23 +16,23 @@ export interface CryptoSpawn extends AbstractSpawn {
   spawn_rate: number;
 }
 export interface UpgradePrice {
-  id: number
-  crypto_id: number
-  tier_1: number
-  tier_2: number
-  tier_3: number
-  tier_4: number
-  tier_5: number
+  id: number;
+  crypto_id: number;
+  tier_1: number;
+  tier_2: number;
+  tier_3: number;
+  tier_4: number;
+  tier_5: number;
 }
 export interface UpgradeSkillEffect {
-  id: number
-  skill_id: number
-  formula: string
+  id: number;
+  skill_id: number;
+  formula: string;
 }
 export interface UpgradeVitalEffect {
-  id: number
-  vital_id: number
-  formula: string
+  id: number;
+  vital_id: number;
+  formula: string;
 }
 export interface Upgrade {
   id: number;
@@ -142,12 +142,15 @@ export interface Vital {
   initial: string;
   default: number;
 }
+export interface FallThroughLayer {
+    layer: number;
+}
 export interface World {
   id: number;
   name: string;
   development_mode: number;
   published: number;
-  video: string;
+  thumbnail: string;
   description: string;
   width: number;
   height: number;
@@ -174,4 +177,5 @@ export interface DetailedWorld extends World {
   vitals: Vital[];
   white_spaces: WhiteSpace[];
   consumables: any[];
+  fall_through_layers: FallThroughLayer[];
 }
