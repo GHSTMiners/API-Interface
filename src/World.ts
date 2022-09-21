@@ -3,6 +3,7 @@ export enum SpawnType {
   Crypto,
   Rock,
   WhiteSpace,
+  FallThrough,
 }
 export interface AbstractSpawn {
   type: SpawnType;

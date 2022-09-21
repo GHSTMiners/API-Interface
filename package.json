@@ -1,6 +1,6 @@
 {
   "name": "chisel-api-interface",
-  "version": "1.25.0",
+  "version": "1.27.0",
   "description": "Typescript interface for the chisel API",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
