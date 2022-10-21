@@ -26,3 +26,10 @@ it('Get highscores', () => {
     expect(score).toBeTruthy();
   });
 });
+
+it('Get global statis', () => {
+  let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
+  return apiInterface.statistics_global_games().then((info) => {
+    expect(info).toBeTruthy();
+  });
+});

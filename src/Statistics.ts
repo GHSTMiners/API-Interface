@@ -24,3 +24,9 @@ export interface Wallet {
 export interface Gotchi {
   gotchi_id: number;
 }
+
+export interface GlobalStatisticEntry {
+  total: number
+  last_24h: number
+  last_7d: number
+}

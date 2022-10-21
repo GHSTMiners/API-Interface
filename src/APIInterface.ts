@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SpawnType } from '.';
 import { ServerRegion } from './ServerRegion';
-import { StatisticCategory, StatisticEntry, HighscoreEntry } from './Statistics';
+import { StatisticCategory, StatisticEntry, HighscoreEntry, GlobalStatisticEntry } from './Statistics';
 import { DetailedWorld, World } from './World';
 
 export class APIInterface {
@@ -58,6 +58,22 @@ export class APIInterface {
       return res.data as ServerRegion;
     });
   }
+
+  public statistics_global_games(): Promise<Map<number, GlobalStatisticEntry>> {
+    return axios.get<any>(this.baseUrl + `/statistics/games`).then((res) => {
+      let returnData : Map<number, GlobalStatisticEntry> = new Map<number, GlobalStatisticEntry>()
+      for(const entry of Object.keys(res.data)) {
+        let statsEntry : GlobalStatisticEntry = {
+          total: res.data[entry]['total'],
+          last_24h: res.data[entry]['24h'],
+          last_7d: res.data[entry]['7d']
+        }
+        returnData.set(Number(entry), statsEntry);
+      }
+      return returnData;
+    });
+  }
+
 
   baseUrl: string;
 }
