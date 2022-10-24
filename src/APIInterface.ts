@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SpawnType } from '.';
 import { ServerRegion } from './ServerRegion';
-import { StatisticCategory, StatisticEntry, HighscoreEntry, GlobalStatisticEntry } from './Statistics';
+import { StatisticCategory, StatisticEntry, HighscoreEntry, GameStatistics, GlobalStatisticEntry } from './Statistics';
 import { DetailedWorld, World } from './World';
 
 export class APIInterface {
@@ -44,6 +44,12 @@ export class APIInterface {
   public highscores(category: StatisticCategory): Promise<HighscoreEntry[]> {
     return axios.get(this.baseUrl + `/statistics/highscores/${category.id}`).then((res) => {
       return res.data as HighscoreEntry[];
+    });
+  }
+
+  public game(uuid : string) {
+    return axios.get(this.baseUrl + `/statistics/game/${uuid}`).then((res) => {
+      return res.data as GameStatistics;
     });
   }
 

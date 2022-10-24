@@ -33,3 +33,11 @@ it('Get global statis', () => {
     expect(info).toBeTruthy();
   });
 });
+
+it('Get game stats', () => {
+  let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
+  return apiInterface.game("f4d626eb-c3be-4f06-9483-a490403d257c").then((info) => {
+    console.log(info);
+    expect(info).toBeTruthy();
+  });
+});

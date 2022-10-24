@@ -11,6 +11,7 @@ export interface HighscoreEntry {
 }
 
 export interface StatisticEntry {
+  game_statistic_category_id: number;
   value: number;
   wallet: Wallet;
   gotchi: Gotchi;
@@ -23,6 +24,11 @@ export interface Wallet {
 
 export interface Gotchi {
   gotchi_id: number;
+}
+
+export interface GameStatistics {
+  room_id: string;
+  statistic_entries: StatisticEntry[]
 }
 
 export interface GlobalStatisticEntry {
