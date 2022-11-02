@@ -31,6 +31,16 @@ export interface GameStatistics {
   statistic_entries: StatisticEntry[]
 }
 
+export interface LogEntry {
+  log_file: string;
+}
+
+export interface GameStatistics {
+  room_id: string;
+  log_entry : LogEntry;
+  statistic_entries: StatisticEntry[]
+}
+
 export interface GlobalStatisticEntry {
   total: number
   last_24h: number
