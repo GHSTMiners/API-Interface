@@ -30,7 +30,7 @@ export class APIInterface {
   }
 
   public statistic_categories(): Promise<StatisticCategory[]> {
-    return needle('get', this.baseUrl + 'statistics/categories').then(response => {
+    return needle('get', this.baseUrl + '/statistics/categories').then(response => {
       return response.body as StatisticCategory[];
     });
   }
