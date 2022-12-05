@@ -152,10 +152,12 @@ export interface World {
   development_mode: number;
   published: number;
   thumbnail: string;
+  teaser : string;
   description: string;
   width: number;
   height: number;
   world_crypto_id: number;
+
 }
 export interface WhiteSpace {
   type: SpawnType.WhiteSpace;

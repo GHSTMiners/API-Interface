@@ -41,3 +41,11 @@ it('Get game stats', () => {
     expect(info).toBeTruthy();
   });
 });
+
+it('Get wallet games', () => {
+  let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
+  return apiInterface.games("0x3d93622B63F86e74f631AB77b867Fd52083a12Ef").then((info) => {
+    console.log(info);
+    expect(info).toBeTruthy();
+  });
+});

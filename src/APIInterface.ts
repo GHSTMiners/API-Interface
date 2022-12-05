@@ -1,7 +1,7 @@
 import needle from 'needle';
 import { SpawnType } from '.';
 import { ServerRegion } from './ServerRegion';
-import { StatisticCategory, StatisticEntry, HighscoreEntry, GameStatistics, GlobalStatisticEntry } from './Statistics';
+import { StatisticCategory, StatisticEntry, HighscoreEntry, GameStatistics, GlobalStatisticEntry, Game } from './Statistics';
 import { DetailedWorld, World } from './World';
 
 export class APIInterface {
@@ -45,6 +45,12 @@ export class APIInterface {
     return needle('get', this.baseUrl + `/statistics/highscores/${category.id}`).then(response => {
       return response.body as HighscoreEntry[];
     });
+  }
+
+  public games(wallet_address : string) {
+    return needle('get', this.baseUrl + `/statistics/wallet/${wallet_address}`).then(response => {
+      return response.body as Game[];
+    })
   }
 
   public game(uuid : string) {

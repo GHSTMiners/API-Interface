@@ -26,6 +26,10 @@ export interface Gotchi {
   gotchi_id: number;
 }
 
+export interface Game {
+  room_id: string;
+}
+
 export interface GameStatistics {
   room_id: string;
   statistic_entries: StatisticEntry[]
