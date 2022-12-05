@@ -1,7 +1,7 @@
 import needle from 'needle';
 import { SpawnType } from '.';
 import { ServerRegion } from './ServerRegion';
-import { StatisticCategory, StatisticEntry, HighscoreEntry, GameStatistics, GlobalStatisticEntry, Game } from './Statistics';
+import { StatisticCategory, StatisticEntry, HighscoreEntry, ExtendedGame, GlobalStatisticEntry, Game } from './Statistics';
 import { DetailedWorld, World } from './World';
 
 export class APIInterface {
@@ -55,7 +55,7 @@ export class APIInterface {
 
   public game(uuid : string) {
     return needle('get', this.baseUrl + `/statistics/game/${uuid}`).then(response => {
-      return response.body as GameStatistics;
+      return response.body as ExtendedGame;
     });
   }
 

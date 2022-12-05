@@ -32,16 +32,11 @@ export interface Game {
   created_at: string;
 }
 
-export interface GameStatistics {
-  room_id: string;
-  statistic_entries: StatisticEntry[]
-}
-
 export interface LogEntry {
   log_file: string;
 }
 
-export interface GameStatistics {
+export interface ExtendedGame extends Game  {
   room_id: string;
   log_entry : LogEntry;
   statistic_entries: StatisticEntry[]
