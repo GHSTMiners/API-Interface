@@ -28,6 +28,8 @@ export interface Gotchi {
 
 export interface Game {
   room_id: string;
+  world_id: number;
+  created_at: string;
 }
 
 export interface GameStatistics {
