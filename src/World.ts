@@ -101,6 +101,11 @@ export interface Explosive {
   crypto_id: number;
   price: number;
   explosion_sound: string;
+  mine : boolean;
+  ignore_owner: boolean;
+  lifespan:number;
+  purchase_limit: number;
+  spawn_limit:number;
   explosion_coordinates: ExplosionCoordinate[];
 }
 export interface RockSpawn extends AbstractSpawn {
