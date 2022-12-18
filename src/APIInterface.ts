@@ -3,10 +3,20 @@ import { SpawnType } from '.';
 import { ServerRegion } from './ServerRegion';
 import { StatisticCategory, StatisticEntry, HighscoreEntry, ExtendedGame, GlobalStatisticEntry, Game } from './Statistics';
 import { DetailedWorld, World } from './World';
+import { ValidationResponse } from './Authentication';
 
 export class APIInterface {
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
+  }
+
+  public validate_wallet_ownership(wallet_address : string, token : string) : Promise<ValidationResponse> {
+    return needle('post', this.baseUrl + 'api/token/validate', { wallet_address: wallet_address, token: token }).then(response => {
+      return response.body as ValidationResponse;
+    }).catch(() =>{
+      let response : ValidationResponse = {success: false, roles : {admin : false, moderator : false, developer : false}};
+      return response;
+    })
   }
 
   public worlds(): Promise<World[]> {
@@ -43,6 +53,12 @@ export class APIInterface {
 
   public highscores(category: StatisticCategory): Promise<HighscoreEntry[]> {
     return needle('get', this.baseUrl + `/statistics/highscores/${category.id}`).then(response => {
+      return response.body as HighscoreEntry[];
+    });
+  }
+
+  public daily_highscores(category: StatisticCategory): Promise<HighscoreEntry[]> {
+    return needle('get', this.baseUrl + `/statistics/daily_highscores/${category.id}`).then(response => {
       return response.body as HighscoreEntry[];
     });
   }
