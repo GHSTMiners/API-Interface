@@ -57,9 +57,9 @@ export class APIInterface {
     });
   }
 
-  public daily_highscores(category: StatisticCategory): Promise<HighscoreEntry[]> {
+  public daily_highscores(category: StatisticCategory): Promise<StatisticEntry[]> {
     return needle('get', this.baseUrl + `/statistics/daily_highscores/${category.id}`).then(response => {
-      return response.body as HighscoreEntry[];
+      return response.body as StatisticEntry[];
     });
   }
 
