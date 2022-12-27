@@ -5,9 +5,7 @@ export interface StatisticCategory {
 
 export interface HighscoreEntry {
   gotchi: Gotchi;
-  entry: {
-    value: number;
-  };
+  entry: StatisticEntry;
 }
 
 export interface StatisticEntry {

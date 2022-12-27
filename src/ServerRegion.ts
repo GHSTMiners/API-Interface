@@ -4,4 +4,5 @@ export interface ServerRegion {
   longitude?: number;
   latitude?: number;
   flag?: string;
+  development_only : boolean;
 }
