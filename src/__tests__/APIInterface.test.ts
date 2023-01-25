@@ -49,3 +49,11 @@ it('Get wallet games', () => {
     expect(info).toBeTruthy();
   });
 });
+
+it('Get game amounts', () => {
+  let apiInterface: APIInterface = new APIInterface('https://chisel.gotchiminer.rocks/api');
+  return apiInterface.game_amounts().then((info) => {
+    console.log(info);
+    expect(info).toBeTruthy();
+  });
+});

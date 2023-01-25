@@ -15,6 +15,13 @@ export interface StatisticEntry {
   gotchi: Gotchi;
 }
 
+
+export interface GameAmountEntry {
+  start_date: string;
+  end_date: string;
+  data_points: Map<string, number>
+}
+
 export interface Wallet {
   address: string;
   chain_id: number;

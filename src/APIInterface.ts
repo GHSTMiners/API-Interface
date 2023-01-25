@@ -1,7 +1,7 @@
 import needle from 'needle';
 import { SpawnType } from '.';
 import { ServerRegion } from './ServerRegion';
-import { StatisticCategory, StatisticEntry, HighscoreEntry, ExtendedGame, GlobalStatisticEntry, Game } from './Statistics';
+import { StatisticCategory, GameAmountEntry, StatisticEntry, HighscoreEntry, ExtendedGame, GlobalStatisticEntry, Game } from './Statistics';
 import { DetailedWorld, World } from './World';
 import { ValidationResponse } from './Authentication';
 
@@ -48,6 +48,12 @@ export class APIInterface {
   public statistics_gotchi(category: StatisticCategory, gotchi: number): Promise<StatisticEntry[]> {
     return needle('post', this.baseUrl + `/statistics/gotchi/${category.id}`, { gotchi_id: gotchi }).then(response => {
       return response.body as StatisticEntry[];
+    });
+  }
+
+  public game_amounts(): Promise<GameAmountEntry[]> {
+    return needle('get', this.baseUrl + `/statistics/game_amounts`).then(response => {
+      return response.body as GameAmountEntry[];
     });
   }
 
