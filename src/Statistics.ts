@@ -19,7 +19,7 @@ export interface StatisticEntry {
 export interface GameAmountEntry {
   start_date: string;
   end_date: string;
-  data_points: Map<string, number>
+  games_per_region: Map<string, number>
 }
 
 export interface Wallet {
