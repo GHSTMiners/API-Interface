@@ -172,6 +172,33 @@ export interface WhiteSpace {
   ending_layer: number;
   spawn_rate: number;
 }
+
+export interface SkillEffect {
+  id: number;
+  skill_id: number;
+  formula: string;
+}
+
+export interface VitalEffect {
+  id: number;
+  vital_id: number;
+  formula: string;
+}
+
+export interface Consumable {
+  name: string;
+  description: string;
+  image: string;
+  crypto_id: number;
+  price: number;
+  duration: number;
+  carry_limit: number;
+  purchase_limit: number;
+  script: string;
+  skill_effects: SkillEffect[];
+  vital_effect: VitalEffect[];
+}
+
 export interface DetailedWorld extends World {
   backgrounds: Background[];
   crypto: Crypto[];
@@ -184,6 +211,6 @@ export interface DetailedWorld extends World {
   skills: Skill[];
   vitals: Vital[];
   white_spaces: WhiteSpace[];
-  consumables: any[];
+  consumables: Consumable[];
   fall_through_layers: FallThroughLayer[];
 }
