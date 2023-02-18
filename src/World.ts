@@ -174,18 +174,17 @@ export interface WhiteSpace {
 }
 
 export interface SkillEffect {
-  id: number;
   skill_id: number;
   formula: string;
 }
 
 export interface VitalEffect {
-  id: number;
   vital_id: number;
   formula: string;
 }
 
 export interface Consumable {
+  id: number;
   name: string;
   description: string;
   image: string;
