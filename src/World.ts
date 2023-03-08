@@ -195,7 +195,7 @@ export interface Consumable {
   purchase_limit: number;
   script: string;
   skill_effects: SkillEffect[];
-  vital_effect: VitalEffect[];
+  vital_effects: VitalEffect[];
 }
 
 export interface DetailedWorld extends World {
