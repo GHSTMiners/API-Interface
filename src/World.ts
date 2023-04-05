@@ -4,6 +4,8 @@ export enum SpawnType {
   Rock,
   WhiteSpace,
   FallThrough,
+  Explosive,
+  Consumable
 }
 export interface AbstractSpawn {
   type: SpawnType;
